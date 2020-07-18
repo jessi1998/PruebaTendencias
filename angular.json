@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "PruebaUnidad2": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PruebaUnidad2"
+    }
+  },
+  "defaultProject": "PruebaUnidad2",
+  "cli": {
+    "analytics": "9a79b9a3-17c5-4d64-9f74-e8f09a5ed67f"
+  }
 }
