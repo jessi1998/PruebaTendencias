@@ -2,7 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import {BodyComponent} from './components/body/body.component';
 import { LugarComponent } from './components/lugar/lugar.component';
-    import { from } from 'rxjs';
+import { from } from 'rxjs';
 
 
 const ROUTES: Routes = [

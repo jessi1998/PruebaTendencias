@@ -11,15 +11,35 @@
         </div>
     </div>
 </div>
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
+<div class="card-center" style="width: 50  rem;">
+    <h5 class="card-header">Iniciar sesión</h5>
+    <div class="card-body text center">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="form-group col-md-6">
+                        <label for="Correo electronico"> Correo Electronico</label>
+                        <input formControlName="correo" required pattern="email" type="email" class="form-control" id="Correo electronico" aria-describedby="Correo electronico">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label form="contrasenia" for="Contraseña">Contraseña</label>
+                        <input formControlName="contrasenia" type="password" class="form-control" required id="exampleInputPassword1">
 
-    <button type="submit" class="btn btn-primary">Ingresar</button>
-</form>
+                    </div>
+                    <div class="form-group form-check col-md-6">
+                        <input type="checkbox" class="form-check-input" id="checkRecordar">
+                        <label class="form-check-label" for="checkRecordar">Recordar nombre de usuario </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+
+                    <small id="textiniciar" class="form-text text-muted">¿No tienes cuenta?</small>
+
+                    <button class="btn btn-outline-success" type="button" [routerLink]="['registro']">Registrarse</button>
+                </div>
+                <div class="form-group col-md-6 ">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
