@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { BodyComponent } from './components/body/body.component';
 import { LugarComponent } from './components/lugar/lugar.component';
+import { LoguinComponent } from './components/loguin/loguin.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LugarComponent } from './components/lugar/lugar.component';
     HeaderComponent,
     UsuarioComponent,
     BodyComponent,
-    LugarComponent
+    LugarComponent,
+    LoguinComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-lugar',
   templateUrl: './lugar.component.html',
@@ -7,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LugarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
+  
 
 }
