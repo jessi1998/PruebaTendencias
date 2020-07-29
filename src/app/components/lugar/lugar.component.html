@@ -1,20 +1,11 @@
 <div class="card-center" style="width: 50  rem;">
     <h5 class="card-header">Registrar un lugar</h5>
     <div class="card-body text center">
-        <form>
-            <input type="file" name="archivo" />
-            <br />
-            <br />
 
-        </form>
 
         <form>
             <div class="form-group col-md-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1"></label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted"></small>
-                </div>
+                <h3>Datos de lugar</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nombre del lugar</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -35,8 +26,29 @@
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
-                <button type="submit" class="btn btn-primary">REGISTRAR LUGAR</button>
+
             </div>
         </form>
+        <form>
+            <h3>Fotografias de referencia para el lugar</h3>
+
+            <h6>INGRESE DOS IMAGENES COMO MINIMO</h6>
+            <input type="file" name="archivo" (change)="onChange($event)" />
+            <h5 *ngIf="subiendo">Subiendo imagen...</h5>
+            <br />
+            <br />
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="onClickSubir($event)">Guardar Imagen</button>
+        </form>
+
+        <div class="" *ngIf="showImagen" style="width: 700px;">
+            <h1>Imagen guardada con exito</h1>
+            <a [href]="urlImagen" target="_blank">Abrir Imagen</a>
+            <img class="imgn-fluid" [src]="urlImagen" alt="" />
+        </div>
+
+        <div class="error" *ngIf="error">
+            <h1>Ha ocurrido un error</h1>
+        </div>
     </div>
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">REGISTRAR LUGAR</button>
 </div>
