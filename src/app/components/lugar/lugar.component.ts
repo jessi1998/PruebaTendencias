@@ -46,6 +46,7 @@ export class LugarComponent implements OnInit {
         }).promise();
 
         this.urlImagen = data.Location;
+        alert( this.urlImagen = data.Location);
         this.subiendo = false;
         this.showImagen = true;
       } catch (error) {

@@ -17,7 +17,7 @@ export class UsuarioService {
     return this.http.get(url);
 }
 getUsuario(): Observable<any>{
-    const url='usuario';
+    const url = 'usuario';
     return this.getQuery(url);
 
 }
