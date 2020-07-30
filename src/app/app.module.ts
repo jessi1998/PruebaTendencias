@@ -8,6 +8,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { BodyComponent } from './components/body/body.component';
 import { LugarComponent } from './components/lugar/lugar.component';
 import { LoguinComponent } from './components/loguin/loguin.component';
+import { ListarlugaresComponent } from './components/listarlugares/listarlugares.component';
+import { TarjetalugaresComponent } from './components/tarjetalugares/tarjetalugares.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoguinComponent } from './components/loguin/loguin.component';
     UsuarioComponent,
     BodyComponent,
     LugarComponent,
-    LoguinComponent
+    LoguinComponent,
+    ListarlugaresComponent,
+    TarjetalugaresComponent
   ],
   imports: [
     BrowserModule,
