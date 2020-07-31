@@ -9,7 +9,7 @@ import { UsuarioService } from '../../servicios/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
-  constructor(private _builder: FormBuilder, private usuarioService: UsuarioService) { 
+  constructor(private _builder: FormBuilder, private usuarioService: UsuarioService) {
     this.usuarioForm = this._builder.group({
         nombre_usuario: ['', Validators.required],
         apellido_usuario: ['', Validators.required],
@@ -23,6 +23,12 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
   }
-   
+  get nombre_usuario() {return this.usuarioForm.get('nombre_usuario');}
+  get apelido_usuario() {return this.usuarioForm.get('apelido_usuario');}
+  get direccion_usuario(){ return this.usuarioForm.get('direccion_usuario');}
+  get correo_usuario() { return this.usuarioForm.get('correo_usuario');}
+  get password_usuario(){return this.usuarioForm.get('password_usuario');}
+
+
 
 }
