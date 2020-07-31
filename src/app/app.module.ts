@@ -10,6 +10,7 @@ import { LugarComponent } from './components/lugar/lugar.component';
 import { LoguinComponent } from './components/loguin/loguin.component';
 import { ListarlugaresComponent } from './components/listarlugares/listarlugares.component';
 import { TarjetalugaresComponent } from './components/tarjetalugares/tarjetalugares.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TarjetalugaresComponent } from './components/tarjetalugares/tarjetaluga
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     APPROUTING
   ],
   providers: [],

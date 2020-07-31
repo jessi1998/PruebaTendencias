@@ -11,19 +11,13 @@ export class LugarService {
 
   constructor(private http: HttpClient) { }
 
-  getQuery(query: string){
-    const url = `http://localhost:80/${query}`;
-    console.log(url);
-    return this.http.get(url);
-}
-getLugar(): Observable<any>{
-    const url='lugar';
-    return this.getQuery(url);
-
-}
-
-getLugarById(id: string) {
-  const url = 'lugar';
-return this.getQuery(url);
-}
+  private urlapi ='http://100.25.138.187/lugar'
+ 
+  getAllLugar(): Observable<Lugar[]>{
+  return this.http.get<Lugar[]>(this.urlapi);
+  }
+  
+  addNewLugar(lugar:Lugar):Observable<Lugar>{
+    return this.http.post<Lugar>(this.urlapi,lugar)
+  }
 }

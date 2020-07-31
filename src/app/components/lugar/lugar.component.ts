@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as AWS from 'aws-sdk';
 import { async } from '@angular/core/testing';
+import { LugarService } from '../../servicios/lugar.service';
+
 @Component({
   selector: 'app-lugar',
   templateUrl: './lugar.component.html',
@@ -19,7 +21,7 @@ export class LugarComponent implements OnInit {
   subiendo = false;
 
 
-  constructor() {
+  constructor(private lugarservice: LugarService) {
      // Inicializar el proveedor de credenciales de Amazon Cognito
      AWS.config.region = 'us-east-1'; // Región
      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -66,6 +68,11 @@ export class LugarComponent implements OnInit {
       this.archivo = event.target.files[0];
     }
   };
+
+  saveNew(){
+    const newLugar={nombre:'Baños de agua santa', actividades:'Acampar, Nadar, Pesca',descripcion:'Ubicada en ambato',imagen1:'hhtp://hh//gg',imagen2:'hhtp://hh//img2'}
+    this.lugarservice.addNewLugar(newLugar).subscribe(data=>console.log(data))
+  }
 
   }
 

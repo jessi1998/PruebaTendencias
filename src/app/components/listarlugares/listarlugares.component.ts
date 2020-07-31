@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LugarService } from '../../servicios/lugar.service';
+import { Lugar } from '../../modelos/lugar.modelos';
 
 
 @Component({
@@ -9,20 +10,16 @@ import { LugarService } from '../../servicios/lugar.service';
   styleUrls: ['./listarlugares.component.scss']
 })
 export class ListarlugaresComponent implements OnInit {
-lugar:string;
+
+
+  lugares:Lugar[];
 
 
   constructor(private lugarservice: LugarService) {}
 
   ngOnInit(): void {
+    this.lugarservice.getAllLugar().subscribe(data=>this.lugares=data)
   }
 
-  Listar(){
-    this.lugarservice.getLugar().subscribe(
-      data=>{
-        console.log(data);
-      }
-    )
-  }
-
+ 
 }

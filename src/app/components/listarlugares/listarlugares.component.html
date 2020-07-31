@@ -1,1 +1,5 @@
-<button (click)="Listar()" class="btn btn-primary "></button>
+<ul>
+    <li *ngFor=" let lugar of lugares">
+        {{lugar.nombre}}
+    </li>
+</ul>
