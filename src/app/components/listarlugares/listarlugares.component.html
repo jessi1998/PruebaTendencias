@@ -1,5 +1,17 @@
-<ul>
-    <li *ngFor=" let lugar of lugares">
-        {{lugar.nombre}}
-    </li>
-</ul>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="col mb-4" *ngFor=" let lugar of lugares">
+            <div class="card" style="width: 18rem;">
+                <h5 class="card-header">Featured</h5>
+                <img src="../../../assets/user.jpg" width="250" height="250" alt="" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{lugar.nombre}}</h5>
+                    <p class="card-text">{{lugar.actividades}}</p>
+                    <p class="card-text">{{lugar.descripcion}}</p>
+
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
