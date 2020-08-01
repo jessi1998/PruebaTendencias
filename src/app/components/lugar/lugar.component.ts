@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as AWS from 'aws-sdk';
 import { async } from '@angular/core/testing';
 import { LugarService } from '../../servicios/lugar.service';
+import { Lugar } from '../../modelos/lugar.modelos';
+
 
 @Component({
   selector: 'app-lugar',
@@ -19,6 +21,7 @@ export class LugarComponent implements OnInit {
   urlImagen = null;
   error = false;
   subiendo = false;
+  lugar: Lugar={nombre:'',descripcion:'',actividades:''};
 
 
   constructor(private lugarservice: LugarService) {
@@ -71,7 +74,13 @@ export class LugarComponent implements OnInit {
 
   saveNew(){
     const newLugar={nombre:'Baños de agua santa', actividades:'Acampar, Nadar, Pesca',descripcion:'Ubicada en ambato',imagen1:'hhtp://hh//gg',imagen2:'hhtp://hh//img2'}
-    this.lugarservice.addNewLugar(newLugar).subscribe(data=>console.log(data))
+    this.lugarservice.addNewLugar(this.lugar).subscribe(data=>console.log(data))
+  }
+
+  onSubmit(){
+    console.log(this.lugar);
+    this.lugarservice.addNewLugar(this.lugar).subscribe(data=>console.log(data))
+
   }
 
   }

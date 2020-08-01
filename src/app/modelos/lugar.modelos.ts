@@ -5,7 +5,7 @@ export interface Lugar{
     nombre:string;
     actividades:string;
     descripcion:string;
-    imagen1:string;
-    imagen2:string;
+    imagen1?:string;
+    imagen2?:string;
     
 }

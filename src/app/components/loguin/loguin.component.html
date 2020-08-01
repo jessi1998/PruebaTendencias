@@ -1,32 +1,29 @@
-<div class="card-center" style="width: 50  rem;">
-    <h5 class="card-header">Iniciar sesión</h5>
-    <div class="card-body text center">
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <div class="form-group col-md-6">
-                        <label for="Correo electronico"> Correo Electronico</label>
-                        <input formControlName="correo" pattern="email" type="email" class="form-control" id="Correo electronico" aria-describedby="Correo electronico">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label form="contrasenia" for="Contraseña">Contraseña</label>
-                        <input formControlName="contrasenia" type="password" class="form-control" id="exampleInputPassword1">
-
-                    </div>
-                    <div class="form-group form-check col-md-6">
-                        <input type="checkbox" class="form-check-input" id="checkRecordar">
-                        <label class="form-check-label" for="checkRecordar">Recordar nombre de usuario </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-
-                    <small id="textiniciar" class="form-text text-muted">¿No tienes cuenta?</small>
-
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['registro']">Registrarse</button>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="..//..//..//assets/user.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleDropdownFormEmail2">Email address</label>
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
                 </div>
-                <div class="form-group col-md-6 ">
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword2">Password</label>
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
                 </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                        <label class="form-check-label" for="dropdownCheck2">
+                      Remember me
+                    </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+
             </div>
-        </form>
+        </div>
     </div>
 </div>

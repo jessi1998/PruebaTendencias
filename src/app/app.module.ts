@@ -11,6 +11,8 @@ import { LoguinComponent } from './components/loguin/loguin.component';
 import { ListarlugaresComponent } from './components/listarlugares/listarlugares.component';
 import { TarjetalugaresComponent } from './components/tarjetalugares/tarjetalugares.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+
     APPROUTING
   ],
   providers: [],

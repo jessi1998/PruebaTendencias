@@ -3,17 +3,26 @@
     <div class="card-body text center">
 
 
-        <form>
+        <form (ngSubmit)="onSubmit()">
+
             <div class="form-group col-md-6">
                 <h3>Datos de lugar</h3>
                 <div class="form-group">
                     <label>Nombre del lugar</label>
-                    <input type="text" class="form-control" id="nombre_lugarG">
+                    <input type="text" class="form-control" id="nombre" [(ngModel)]="lugar.nombre" name="nombre">
+                    <!--
+                        (ngSubmit)="onSubmit()"
+                         [(ngModel)]="lugar.nombre"
+                          [(ngModel)]="lugar.descripcion"
+                          [(ngModel)]="lugar.actividades"
+                    -->
+
 
                 </div>
                 <div class="form-group">
                     <label>Descripcion del lugar</label>
-                    <input type="text" class="form-control" id="descripcion_lugar">
+                    <input type="text" class="form-control" id="descripcion" [(ngModel)]="lugar.descripcion" name="descripcion">
+
 
                 </div>
                 <div class="form-group">
@@ -23,7 +32,8 @@
                 </div>
                 <div class="form-group">
                     <label>Actividades que se pueden realizar</label>
-                    <input type="text" class="form-control" id="actividades_lugar">
+                    <input type="text" class="form-control" id="actividades" [(ngModel)]="lugar.actividades" name="actividades">
+
 
                 </div>
 
