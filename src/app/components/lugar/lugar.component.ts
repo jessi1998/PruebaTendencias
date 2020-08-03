@@ -25,7 +25,10 @@ export class LugarComponent implements OnInit {
   urlImagen2 = null;
   error = false;
   subiendo = false;
-  lugar: Lugar={nombre:'',descripcion:'',actividades:'',imagen1:this.urlImagen1};
+  nombre:'';
+  descripcion:'';
+  actividades:'';
+  imagen1:'';
   direccion: Direccion ={pais:'',provincia:'',ciudad:''}
 
 
@@ -104,11 +107,14 @@ export class LugarComponent implements OnInit {
   };
 
   saveNew(){
-   console.log(this.lugar)
    console.log(this.direccion)
-   // this.lugarservice.addNewLugar(this.lugar).subscribe(data=>console.log(data));
-   this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data)); 
+   const lugar: Lugar={nombre:this.nombre,descripcion:this.descripcion,actividades:this.actividades,imagen1:this.urlImagen1};
+   console.log(lugar)
+    this.lugarservice.addNewLugar(lugar).subscribe(data=>console.log(data));
+  //this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data)); 
   }
+
+  
   }
 
 

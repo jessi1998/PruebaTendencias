@@ -9,7 +9,12 @@ import { Usuario } from '../../modelos/usuario.modelos';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
-  user:Usuario={nombre:'',apellido:'',correo:'',password:''};
+  nombre:'';
+  apellido:'';
+  correo:'';
+  password:'';
+  //user:Usuario={
+  //  nombre:'' ,apellido:'',correo:'',password:''};
 
   constructor( private userService:UsuarioService){}
   
@@ -18,12 +23,12 @@ export class UsuarioComponent implements OnInit {
   }
 
   saveNew(){
-    console.log(this.user)
-    this.userService.addNewUser(this.user).subscribe(
-      data=>console.log(data));
-    
-    
-   }
+    const user:Usuario={ nombre:this.nombre ,apellido:this.apellido,correo:this.correo,password:this.password}
+    console.log(user)
+    this.userService.addNewUser(user).subscribe(
+    data=>console.log(data)); 
+  }
+
 
 
 }

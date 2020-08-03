@@ -5,23 +5,23 @@
             <div class="form-group col-md-6">
                 <div class="form-group">
                     <label>Nombres</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="user.nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
 
                 </div>
                 <div class="form-group">
                     <label>Apellidos</label>
-                    <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="user.apellido">
+                    <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="apellido" required>
 
                 </div>
 
                 <div class="form-group">
                     <label>Correo electronico</label>
-                    <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="user.correo">
+                    <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="correo" required>
 
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary" (click)="saveNew()">REGISTRARME</button>
