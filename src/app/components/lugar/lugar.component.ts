@@ -20,10 +20,12 @@ export class LugarComponent implements OnInit {
   });
   showImagen = false;
   archivo = null;
-  urlImagen = null;
+  archivo2 =  null;
+  urlImagen1 = null;
+  urlImagen2 = null;
   error = false;
   subiendo = false;
-  lugar: Lugar={nombre:'',descripcion:'',actividades:'',imagen1:this.urlImagen};
+  lugar: Lugar={nombre:'',descripcion:'',actividades:'',imagen1:this.urlImagen1};
   direccion: Direccion ={pais:'',provincia:'',ciudad:''}
 
 
@@ -52,9 +54,35 @@ export class LugarComponent implements OnInit {
             ACL: 'public-read',
           },
         }).promise();
-
-        this.urlImagen = data.Location;
-        alert( this.urlImagen = data.Location);
+        this.urlImagen1 = data.Location;
+        alert( this.urlImagen1 = data.Location);
+        console.log('********' , this.urlImagen1);
+        this.subiendo = false;
+        this.showImagen = true;
+      } catch (error) {
+        this.error = true;
+        const bucle = setInterval(() => {
+          this.error = false;
+          clearInterval(bucle);
+        }, 2000);
+      }
+    }
+    if (this.archivo2) {
+      try {
+        console.log(this.archivo2);
+        this.subiendo = true;
+        const data = await new AWS.S3.ManagedUpload({
+          params: {
+            Bucket: this.albumBucketName,
+            Key: this.archivo2.name,
+            Body: this.archivo2,
+            ACL: 'public-read',
+          },
+        }).promise();
+        this.urlImagen2 = data.Location;
+        alert(this.urlImagen2 = data.Location);
+        console.log('1');
+        console.log(this.urlImagen2);
         this.subiendo = false;
         this.showImagen = true;
       } catch (error) {
@@ -79,12 +107,8 @@ export class LugarComponent implements OnInit {
    console.log(this.lugar)
    console.log(this.direccion)
    // this.lugarservice.addNewLugar(this.lugar).subscribe(data=>console.log(data));
-   this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data));
-   
+   this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data)); 
   }
-
- 
-
   }
 
 
