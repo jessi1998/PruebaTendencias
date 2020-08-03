@@ -3,7 +3,7 @@
     <div class="card-body text center">
 
 
-        <form (ngSubmit)="onSubmit()">
+        <form>
 
             <div class="form-group col-md-6">
                 <h3>Datos de lugar</h3>
@@ -26,11 +26,6 @@
 
                 </div>
                 <div class="form-group">
-                    <label>Direccion</label>
-                    <input type="text" class="form-control" id="direccion_lugar">
-
-                </div>
-                <div class="form-group">
                     <label>Actividades que se pueden realizar</label>
                     <input type="text" class="form-control" id="actividades" [(ngModel)]="lugar.actividades" name="actividades">
 
@@ -39,6 +34,28 @@
 
             </div>
         </form>
+        <form>
+            <div class="form-group col-md-6">
+                <h3>Direccion</h3>
+                <div class="form-group ">
+                    <label>Pais</label>
+                    <select name="pais" id="pais" class="form-control" [(ngModel)]="direccion.pais">
+                        <option value="Ecuador">Ecuador</option>
+                    </select>
+                </div>
+
+                <div class="form-group ">
+                    <label>Provincia</label>
+                    <input type="text" class="form-control" id="provincia" [(ngModel)]="direccion.provincia" name="provincia">
+                </div>
+                <div class="form-group ">
+                    <label>Ciudad</label>
+                    <input type="text" class="form-control" id="ciudad" [(ngModel)]="direccion.ciudad" name="ciudad">
+                </div>
+
+            </div>
+        </form>
+
         <form>
             <h3>Fotografias de referencia para el lugar</h3>
 
@@ -49,6 +66,7 @@
             <br />
             <button class="btn btn-outline-success my-2 my-sm-0" (click)="onClickSubir($event)">Guardar Imagen</button>
         </form>
+
 
         <div class="" *ngIf="showImagen" style="width: 700px;">
             <h1>Imagen guardada con exito</h1>
