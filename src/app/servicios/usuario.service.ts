@@ -16,6 +16,11 @@ export class UsuarioService {
   password_usuario_in: string;
   */
   constructor(private http: HttpClient) { }
+  private urlapi ='http://100.25.138.187/usuario'
+
+  addNewUser(user:Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>(this.urlapi,user)
+  }
 /*
   getQuery(query: string){
     const url = `http://localhost:80/${query}`;
