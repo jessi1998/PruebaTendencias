@@ -4,7 +4,7 @@ import { async } from '@angular/core/testing';
 import { LugarService } from '../../servicios/lugar.service';
 import { Lugar } from '../../modelos/lugar.modelos';
 import { Direccion } from '../../modelos/direccion.modelos';
-
+import { DireccionService } from '../../servicios/direccion.service';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class LugarComponent implements OnInit {
   direccion: Direccion ={pais:'',provincia:'',ciudad:''}
 
 
-  constructor(private lugarservice: LugarService) {
+  constructor(private lugarservice: LugarService, private direccionservice: DireccionService) {
      // Inicializar el proveedor de credenciales de Amazon Cognito
      AWS.config.region = 'us-east-1'; // Región
      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -78,7 +78,9 @@ export class LugarComponent implements OnInit {
   saveNew(){
    console.log(this.lugar)
    console.log(this.direccion)
-   // this.lugarservice.addNewLugar(this.lugar).subscribe(data=>console.log(data))
+   // this.lugarservice.addNewLugar(this.lugar).subscribe(data=>console.log(data));
+   this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data));
+   
   }
 
  

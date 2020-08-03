@@ -11,19 +11,10 @@ export class DireccionService {
 
   constructor(private http: HttpClient) { }
 
-  getQuery(query: string){
-    const url = `http://localhost:80/${query}`;
-    console.log(url);
-    return this.http.get(url);
-}
-getDireccion(): Observable<any>{
-    const url='direccion';
-    return this.getQuery(url);
+  private urlapi ='http://100.25.138.187/direccion'
 
-}
-
-getDireccionById(id: string) {
-  const url = 'direccion';
-return this.getQuery(url);
-}
+  addNewDireccion(direccion:Direccion):Observable<Direccion>{
+    return this.http.post<Direccion>(this.urlapi,direccion)
+  }
+ 
 }

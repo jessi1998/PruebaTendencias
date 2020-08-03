@@ -8,13 +8,15 @@ import { Usuario } from '../modelos/usuario.modelos';
   providedIn: 'root'
 })
 export class UsuarioService {
+  /*
   nombre_usuario_in: string;
   apellido_usuario_in: string;
   direccion_usuario_in: string;
   correo_usuario_in: string;
   password_usuario_in: string;
+  */
   constructor(private http: HttpClient) { }
-
+/*
   getQuery(query: string){
     const url = `http://localhost:80/${query}`;
     console.log(url);
@@ -38,7 +40,7 @@ getDate(nombre_usuario_get: string, apellido_usuario_get: string,
   this.direccion_usuario_in = direccion_usuario_get;
   this.correo_usuario_in = correo_usuario_get;
   this.password_usuario_in = password_usuario_get;
-}
-
+  
+}*/
 // tslint:disable-next-line: adjacent-overload-signature
 }
