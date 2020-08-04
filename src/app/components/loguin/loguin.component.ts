@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loguin.component.scss']
 })
 export class LoguinComponent implements OnInit {
-  usuario:string;
+  usuario: string;
   contrasenia: string;
   user = 'xavier.y.2013@gmail.com';
   password = '1234';
- 
   constructor() { }
 
   ngOnInit(): void {
@@ -21,22 +20,17 @@ export class LoguinComponent implements OnInit {
     console.log(this.contrasenia);
     console.log(this.user);
 
-    if(this.usuario==undefined || this.contrasenia==undefined){
+    if (this.usuario == undefined || this.contrasenia == undefined) {
 
       alert('Ingrese las credenciales');
-     
-    }else{
-      if(this.usuario == this.user && this.contrasenia == this.password){
-        console.log("usuario correcto")
+    } else {
+      if (this.usuario == this.user && this.contrasenia == this.password){
+        console.log('usuario correcto')
         alert('Usuario Correcto');
-      }else{
+      } else {
         alert('Usuario Incorrecto');
       }
     }
-    
-     
-    
-   
   }
 
 }
