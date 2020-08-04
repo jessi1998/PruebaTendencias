@@ -21,7 +21,7 @@ export class LoguinComponent implements OnInit {
     console.log(this.contrasenia);
     console.log(this.user);
 
-    if(this.usuario==undefined && this.contrasenia==undefined){
+    if(this.usuario==undefined || this.contrasenia==undefined){
 
       alert('Ingrese las credenciales');
      

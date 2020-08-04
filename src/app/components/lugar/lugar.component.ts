@@ -29,7 +29,10 @@ export class LugarComponent implements OnInit {
   descripcion:'';
   actividades:'';
   imagen1:'';
-  direccion: Direccion ={pais:'',provincia:'',ciudad:''}
+  pais:'';
+  provincia:'';
+  ciudad:'';
+ 
 
 
   constructor(private lugarservice: LugarService, private direccionservice: DireccionService) {
@@ -107,11 +110,19 @@ export class LugarComponent implements OnInit {
   };
 
   saveNew(){
-   console.log(this.direccion)
-   const lugar: Lugar={nombre:this.nombre,descripcion:this.descripcion,actividades:this.actividades,imagen1:this.urlImagen1};
+
+    if(this.nombre==undefined||this.descripcion==undefined||this.actividades==undefined||this.pais==undefined||this.ciudad==undefined||this.provincia==undefined||this.urlImagen1==undefined){
+      alert('Existen campos vacíos');
+    }else{
+      const lugar: Lugar={nombre:this.nombre,descripcion:this.descripcion,actividades:this.actividades,imagen1:this.urlImagen1};
+   const direccion: Direccion ={pais:this.pais,provincia:this.provincia,ciudad:this.ciudad}
    console.log(lugar)
-    this.lugarservice.addNewLugar(lugar).subscribe(data=>console.log(data));
+   console.log(direccion)
+   // this.lugarservice.addNewLugar(lugar).subscribe(data=>console.log(data));
   //this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data)); 
+  alert('Lugar agregado exitosamente ');
+    }
+   
   }
 
   

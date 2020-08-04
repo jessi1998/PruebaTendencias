@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { Usuario } from '../../modelos/usuario.modelos';
 
@@ -13,8 +12,7 @@ export class UsuarioComponent implements OnInit {
   apellido:'';
   correo:'';
   password:'';
-  //user:Usuario={
-  //  nombre:'' ,apellido:'',correo:'',password:''};
+  
 
   constructor( private userService:UsuarioService){}
   
@@ -23,10 +21,18 @@ export class UsuarioComponent implements OnInit {
   }
 
   saveNew(){
-    const user:Usuario={ nombre:this.nombre ,apellido:this.apellido,correo:this.correo,password:this.password}
-    console.log(user)
-    this.userService.addNewUser(user).subscribe(
-    data=>console.log(data)); 
+
+    if(this.nombre==undefined || this.apellido==undefined || this.correo==undefined || this.password== undefined){
+      alert('Existen campos sin llenar');
+
+    }else{
+      const user:Usuario={ nombre:this.nombre ,apellido:this.apellido,correo:this.correo,password:this.password}
+      console.log(user)
+     // this.userService.addNewUser(user).subscribe(
+     // data=>console.log(data)); 
+     alert('Usuario registrado');
+    }
+   
   }
 
 
