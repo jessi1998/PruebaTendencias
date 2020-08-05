@@ -1,26 +1,27 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
-        <div class="col-md-4">
-            <img src="http://d38h9ppfdpbzlw.cloudfront.net/user.jpg" class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="exampleDropdownFormEmail2">Email address</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com" [(ngModel)]="usuario" name="usuario" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleDropdownFormPassword2">Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password" [(ngModel)]="contrasenia" name="contrasenia" required>
-
-                </div>
-                <div>
-                    <button name="enviar" type="submit" class="btn btn-primary" (click)="onLogin()">Iniciar sesion</button>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary" [routerLink]="['/registro']">Registrarse</button>
-
+        <form [formGroup]="loginForm" (ngSubmit)="enviar(loginForm.value )">
+            <div class="col-md-4">
+                <img src="http://d38h9ppfdpbzlw.cloudfront.net/user.jpg" class="card-img" alt="...">
             </div>
-        </div>
+            <div class="col-md-16">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail2">Email address</label>
+                        <input formControlName="correo" type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleDropdownFormPassword2 ">Password</label>
+                        <input formControlName="password" type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                    </div>
+                    <div>
+                        <button name="enviar" type="submit" class="btn btn-primary" (click)="onLogin()" [disabled]="!loginForm.valid" [routerLink]="['/lugar']">Iniciar sesion</button>
+                    </div>
+                    <br>
+                    <button type="submit " class="btn btn-primary " [routerLink]="[ '/registro'] ">Registrarse</button>
+
+                </div>
+            </div>
+        </form>
     </div>
 </div>

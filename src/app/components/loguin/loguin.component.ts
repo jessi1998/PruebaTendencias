@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-loguin',
@@ -6,31 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loguin.component.scss']
 })
 export class LoguinComponent implements OnInit {
-  usuario: string;
-  contrasenia: string;
-  user = 'xavier.y.2013@gmail.com';
-  password = '1234';
-  constructor() { }
+  loginForm: FormGroup;
+  constructor( private formulario: FormBuilder) {
+    this.loginForm = this.formulario.group({
+
+      // Se crean los nombres a utilizar en el html los cuales son obligatorios
+      correo: ['', Validators.required],
+      password: ['', Validators.required ],
+    });
+   }
+   enviar(values) {
+    console.log(values);
+    return values;
+
+  }
 
   ngOnInit(): void {
   }
 
   onLogin(){
-    console.log(this.usuario);
-    console.log(this.contrasenia);
-    console.log(this.user);
-
-    if (this.usuario == undefined || this.contrasenia == undefined) {
-
-      alert('Ingrese las credenciales');
-    } else {
-      if (this.usuario == this.user && this.contrasenia == this.password){
-        console.log('usuario correcto')
-        alert('Usuario Correcto');
-      } else {
-        alert('Usuario Incorrecto');
-      }
-    }
+    console.log(this.loginForm.value.correo + ' ' + this.loginForm.value.password);
   }
 
 }

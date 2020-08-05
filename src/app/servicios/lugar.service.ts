@@ -11,13 +11,12 @@ export class LugarService {
 
   constructor(private http: HttpClient) { }
 
-  private urlapi ='http://100.25.138.187/lugar'
- 
-  getAllLugar(): Observable<Lugar[]>{
+  private urlapi = 'http://100.24.242.184//lugar';
+
+  getAllLugar(): Observable<Lugar[]> {
   return this.http.get<Lugar[]>(this.urlapi);
   }
-  
-  addNewLugar(lugar:Lugar):Observable<Lugar>{
-    return this.http.post<Lugar>(this.urlapi,lugar)
+  addNewLugar(lugar: Lugar): Observable<Lugar> {
+    return this.http.post<Lugar>(this.urlapi, lugar);
   }
 }

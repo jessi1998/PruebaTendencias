@@ -5,6 +5,7 @@ import { LugarService } from '../../servicios/lugar.service';
 import { Lugar } from '../../modelos/lugar.modelos';
 import { Direccion } from '../../modelos/direccion.modelos';
 import { DireccionService } from '../../servicios/direccion.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { DireccionService } from '../../servicios/direccion.service';
   styleUrls: ['./lugar.component.scss']
 })
 export class LugarComponent implements OnInit {
+  registerForm: FormGroup;
   albumBucketName = 'practica1';
   s3 = new AWS.S3({
     apiVersion: '2006-03-01',
@@ -20,29 +22,35 @@ export class LugarComponent implements OnInit {
   });
   showImagen = false;
   archivo = null;
-  archivo2 =  null;
   urlImagen1 = null;
-  urlImagen2 = null;
   error = false;
   subiendo = false;
-  nombre:'';
-  descripcion:'';
-  actividades:'';
-  imagen1:'';
-  pais:'';
-  provincia:'';
-  ciudad:'';
- 
+  id_direccion: number;
 
+  constructor(private formulario: FormBuilder, private lugarservice: LugarService, private direccionservice: DireccionService) {
 
-  constructor(private lugarservice: LugarService, private direccionservice: DireccionService) {
+    this.registerForm = this.formulario.group({
+
+      //Se crean los nombres a utilizar en el html los cuales son obligatorios
+      nombre: ['', Validators.required],
+      descripcion: ['',Validators.required ],
+      actividades: ['',Validators.required ],
+      pais: ['',Validators.required ],
+      provincia: ['',Validators.required ],
+      ciudad: ['',Validators.required ],
+      parroquia:['',Validators.required]
+    });
      // Inicializar el proveedor de credenciales de Amazon Cognito
-     AWS.config.region = 'us-east-1'; // Región
-     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    AWS.config.region = 'us-east-1'; // Región
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
        IdentityPoolId: 'us-east-1:be50ae8d-3cf4-40d1-8db7-e17e54bee2b4',
      });
    }
+   enviar(values) {
+    console.log(values);
+    return values;
 
+  }
   ngOnInit(): void {
   }
   onClickSubir = async (event) => {
@@ -72,32 +80,6 @@ export class LugarComponent implements OnInit {
           clearInterval(bucle);
         }, 2000);
       }
-    }
-    if (this.archivo2) {
-      try {
-        console.log(this.archivo2);
-        this.subiendo = true;
-        const data = await new AWS.S3.ManagedUpload({
-          params: {
-            Bucket: this.albumBucketName,
-            Key: this.archivo2.name,
-            Body: this.archivo2,
-            ACL: 'public-read',
-          },
-        }).promise();
-        this.urlImagen2 = data.Location;
-        alert(this.urlImagen2 = data.Location);
-        console.log('1');
-        console.log(this.urlImagen2);
-        this.subiendo = false;
-        this.showImagen = true;
-      } catch (error) {
-        this.error = true;
-        const bucle = setInterval(() => {
-          this.error = false;
-          clearInterval(bucle);
-        }, 2000);
-      }
     } else {
       alert('SELECCIONE UN ARCHIVO');
     }
@@ -109,23 +91,25 @@ export class LugarComponent implements OnInit {
     }
   };
 
-  saveNew(){
-
-    if(this.nombre==undefined||this.descripcion==undefined||this.actividades==undefined||this.pais==undefined||this.ciudad==undefined||this.provincia==undefined||this.urlImagen1==undefined){
-      alert('Existen campos vacíos');
-    }else{
-      const lugar: Lugar={nombre:this.nombre,descripcion:this.descripcion,actividades:this.actividades,imagen1:this.urlImagen1};
-   const direccion: Direccion ={pais:this.pais,provincia:this.provincia,ciudad:this.ciudad}
-   console.log(lugar)
-   console.log(direccion)
-   // this.lugarservice.addNewLugar(lugar).subscribe(data=>console.log(data));
-  //this.direccionservice.addNewDireccion(this.direccion).subscribe(data=>console.log(data)); 
-  alert('Lugar agregado exitosamente ');
-    }
-   
+  saveNew() {
+     //Se crea un array de tipo Direccion
+    const direccion: Direccion ={pais:this.registerForm.value.pais,
+      provincia:this.registerForm.value.provincia,ciudad:this.registerForm.value.ciudad,parroquia:this.registerForm.value.parroquia}; 
+    console.log(direccion)
+     /*  // Se hace el metodo post para guardar en la BD
+    this.direccionservice.addNewDireccion(direccion).subscribe((data: Direccion)=>{
+      console.log(data);
+      this.id_direccion = data.id_direccion;
+      });*/
+      //Se crea un array de tipo Lugar
+    const lugar: Lugar={nombre:this.registerForm.value.nombre,descripcion:this.registerForm.value.descripcion,
+        actividades:this.registerForm.value.actividades,imagen1:this.urlImagen1,id_direccion:this.id_direccion};
+    console.log(lugar);
+     /* // Se hace el metodo post para guardar en la BD
+    this.lugarservice.addNewLugar(lugar).subscribe((data:Lugar)=>{
+      console.log(data);
+    });*/
   }
-
-  
   }
 
 

@@ -12,6 +12,7 @@ import { ListarlugaresComponent } from './components/listarlugares/listarlugares
 import { TarjetalugaresComponent } from './components/tarjetalugares/tarjetalugares.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
 
     APPROUTING
   ],

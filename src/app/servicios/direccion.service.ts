@@ -11,10 +11,9 @@ export class DireccionService {
 
   constructor(private http: HttpClient) { }
 
-  private urlapi ='http://100.25.138.187/direccion'
+  private urlapi = 'http://100.24.242.184//direccion';
 
-  addNewDireccion(direccion:Direccion):Observable<Direccion>{
-    return this.http.post<Direccion>(this.urlapi,direccion)
+  addNewDireccion(direccion: Direccion): Observable<Direccion> {
+    return this.http.post<Direccion>(this.urlapi, direccion);
   }
- 
 }

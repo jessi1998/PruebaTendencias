@@ -10,10 +10,11 @@ import { ListarlugaresComponent } from './components/listarlugares/listarlugares
 
 const ROUTES: Routes = [
 {path: 'home', component: BodyComponent},
-{ path:'registro', component: UsuarioComponent },
-{ path:'lugar', component: LugarComponent},
-{ path:'loguin', component:LoguinComponent},
-{ path:'lugares',component:ListarlugaresComponent}
+{ path: 'registro', component: UsuarioComponent },
+{ path: 'lugar', component: LugarComponent},
+{ path: 'loguin', component: LoguinComponent},
+{ path: 'lugares', component: ListarlugaresComponent},
+{ path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 export const APPROUTING = RouterModule.forRoot(ROUTES);
