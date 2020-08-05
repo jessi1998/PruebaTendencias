@@ -1,13 +1,24 @@
 <div class="row">
     <div class="col-sm-6">
-        <div class="col mb-4" *ngFor=" let lugar of lugares">
-            <div class="card" style="width: 18rem;">
-                <h5 class="card-header">{{lugar.nombre}}</h5>
+        <div class="col mb-10" *ngFor=" let lugar of lugares">
+            <div class="card mb-3" style="max-width: 540px;">
+                <h5 class="card-header">{{lugar.nombre|uppercase}}</h5>
 
                 <img src={{lugar.imagen1}} width="250" height="250" alt="" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text">{{lugar.descripcion}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div>
+                        <b style="color: cornflowerblue;">Descripción</b>
+                        <p class="card-text">{{lugar.descripcion}}</p>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label>
+                        
+                        </label><b style="color: cornflowerblue;">Actividades</b>
+                        <p class=" card-text ">{{lugar.actividades}}</p>
+                    </div>
+
                 </div>
             </div>
         </div>

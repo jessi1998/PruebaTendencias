@@ -9,7 +9,6 @@ import { BodyComponent } from './components/body/body.component';
 import { LugarComponent } from './components/lugar/lugar.component';
 import { LoguinComponent } from './components/loguin/loguin.component';
 import { ListarlugaresComponent } from './components/listarlugares/listarlugares.component';
-import { TarjetalugaresComponent } from './components/tarjetalugares/tarjetalugares.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
@@ -23,8 +22,7 @@ import { ReactiveFormsModule} from '@angular/forms';
     BodyComponent,
     LugarComponent,
     LoguinComponent,
-    ListarlugaresComponent,
-    TarjetalugaresComponent
+    ListarlugaresComponent
   ],
   imports: [
     BrowserModule,

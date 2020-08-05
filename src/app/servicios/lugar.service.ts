@@ -9,7 +9,8 @@ import { Lugar } from '../modelos/lugar.modelos';
 })
 export class LugarService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
   private urlapi = 'http://100.24.242.184//lugar';
 
@@ -19,4 +20,5 @@ export class LugarService {
   addNewLugar(lugar: Lugar): Observable<Lugar> {
     return this.http.post<Lugar>(this.urlapi, lugar);
   }
+ 
 }
