@@ -12,7 +12,7 @@ import { Lugar } from '../../modelos/lugar.modelos';
 export class ListarlugaresComponent implements OnInit {
 
 
-  lugares:Lugar[];
+  lugares: Lugar[];
 
 
   constructor(private lugarservice: LugarService) {}
