@@ -41,8 +41,10 @@ export class UsuarioComponent implements OnInit {
     console.log(user);
 
    //Se hace el metodo post para guardar en la DB
-   /*this.userService.addNewUser(user).subscribe(
-   data=>console.log(data));*/
+    this.userService.addNewUser(user).subscribe((data: Usuario)=> {
+      console.log(data);
+      alert('Usuario registrado exitosamente ☺');
+    });
 
   }
 }
