@@ -20,7 +20,6 @@ export class UsuarioComponent implements OnInit {
       apellido: ['', Validators.required ],
       correo: ['', Validators.required],
       password: ['', Validators.required],
-  
     });
   }
   enviar(values) {
@@ -29,8 +28,7 @@ export class UsuarioComponent implements OnInit {
     return values;
 
   }
-  
- 
+
   ngOnInit(): void {
   }
 
@@ -38,7 +36,6 @@ export class UsuarioComponent implements OnInit {
     //Se crea un array de tipo Usuario
     const user: Usuario = {nombre: this.signupForm.value.nombre, apellido: this.signupForm.value.apellido,
       correo: this.signupForm.value.correo, password: this.signupForm.value.password};
-    console.log(user);
 
    //Se hace el metodo post para guardar en la DB
     this.userService.addNewUser(user).subscribe((data: Usuario)=> {

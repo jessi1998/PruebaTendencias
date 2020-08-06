@@ -69,7 +69,6 @@ export class LugarComponent implements OnInit {
           },
         }).promise();
         this.urlImagen1 = data.Location;
-        console.log('********' , this.urlImagen1);
         this.subiendo = false;
         this.showImagen = true;
       } catch (error) {
@@ -94,27 +93,25 @@ export class LugarComponent implements OnInit {
     if(this.urlImagen1 == undefined){
   alert('Ingrese una imagen para continuar');
     }
-    else{
+    else {
        //Se crea un array de tipo Direccion
     const direccion: Direccion ={pais:this.registerForm.value.pais,
-      provincia:this.registerForm.value.provincia,ciudad:this.registerForm.value.ciudad,parroquia:this.registerForm.value.parroquia}; 
-    console.log(direccion)
+      provincia:this.registerForm.value.provincia,ciudad:this.registerForm.value.ciudad,parroquia:this.registerForm.value.parroquia};
        // Se hace el metodo post para guardar en la BD
     this.direccionservice.addNewDireccion(direccion).subscribe((data: Direccion)=>{
       console.log(data);
       this.id_direccion = data.id_direccion;
       });
       //Se crea un array de tipo Lugar
-    const lugar: Lugar={nombre:this.registerForm.value.nombre,descripcion:this.registerForm.value.descripcion,
+    const lugar: Lugar = {nombre:this.registerForm.value.nombre,descripcion:this.registerForm.value.descripcion,
         actividades:this.registerForm.value.actividades,imagen1:this.urlImagen1,id_direccion:this.id_direccion};
-    console.log(lugar);
       // Se hace el metodo post para guardar en la BD
-    this.lugarservice.addNewLugar(lugar).subscribe((data:Lugar)=>{
+    this.lugarservice.addNewLugar(lugar).subscribe((data: Lugar)=>{
       console.log(data);
       alert('Lugar registrado exitosamente ☺');
     });
   }
-    } 
+    }
   }
 
 
